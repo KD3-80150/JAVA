@@ -1,0 +1,23 @@
+package com.app.fruits;
+
+import java.util.Iterator;
+
+public class Mango extends Fruit
+{
+
+	public Mango() 
+	{
+		super();
+	}
+
+	public Mango(String name, double weight, String color) 
+	{
+		super(color, weight, name);
+	}
+
+	@Override
+	public String taste() 
+	{
+		return "Sweet";
+	}
+}

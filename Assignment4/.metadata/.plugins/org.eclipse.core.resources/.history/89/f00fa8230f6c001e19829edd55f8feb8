@@ -1,0 +1,126 @@
+package com.app.fruits;
+
+import java.util.Scanner;
+
+public class tester {
+
+	public static void main(String[] args) {
+		int choice = 0;
+		int counter = 0;
+		Fruit[] basket = new Fruit[10];
+
+		do {
+			System.out.println("*********Menu*********");
+			System.out.println("0.Exit.");
+			System.out.println("1.Add Mango.");
+			System.out.println("2.Add Orange.");
+			System.out.println("3.Add Apple.");
+			System.out.println("4.Display names of all fruits in the basket.");
+			System.out.println("5.Display name,color,weight,taste of all fresh fruits, in the basket.");
+			System.out.println("6.Display tastes of all stale(not fresh) fruits in the basket.");
+			System.out.println("7.Mark a fruit as stale");
+			System.out.println("8.Mark all sour fruits stale(optional).");
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter your choice.");
+			choice = sc.nextInt();
+
+			switch (choice) 
+			{
+			case 0:
+				System.out.println("Exiting Program.");
+				return;
+				
+			case 1:
+			    System.out.print("Enter Mango name: ");
+			    sc.nextLine(); // Consume the newline
+			    String mangoName = sc.nextLine();
+			    System.out.print("Enter Mango color: ");
+			    String mangoColor = sc.nextLine();
+			    System.out.print("Enter Mango weight: ");
+			    double mangoWeight = sc.nextDouble();
+			    basket[counter++] = new Mango(mangoName, mangoWeight, mangoColor);
+			    break;
+
+			case 2:
+			    System.out.print("Enter Orange name: ");
+			    sc.nextLine(); // Consume the newline
+			    String orangeName = sc.nextLine();
+			    System.out.print("Enter Orange color: ");
+			    String orangeColor = sc.nextLine();
+			    System.out.print("Enter Orange weight: ");
+			    double orangeWeight = sc.nextDouble();
+			    basket[counter++] = new Orange(orangeName, orangeWeight, orangeColor);
+			    break;
+
+			case 3:
+			    System.out.print("Enter Apple name: ");
+			    sc.nextLine(); // Consume the newline
+			    String appleName = sc.nextLine();
+			    System.out.print("Enter Apple color: ");
+			    String appleColor = sc.nextLine();
+			    System.out.print("Enter Apple weight: ");
+			    double appleWeight = sc.nextDouble();
+			    basket[counter++] = new Apple(appleName, appleWeight, appleColor);
+			    break;
+				
+			case 4:
+				System.out.println("Fruits in the basket:");
+				for (int i = 0; i < counter; i++) 
+				{
+					System.out.println(basket[i].getName());
+				}
+				break;
+				
+			case 5:
+				System.out.println("Displaying name,color,weight,taste of all fresh fruits, in the basket.");
+				System.out.println("Details of fresh fruits:");
+				for (int i = 0; i < counter; i++) 
+				{
+					if (basket[i].isFresh()) 
+					{
+						System.out.println(basket[i].toString() + ", Taste: " + basket[i].taste());
+					}
+				}
+				break;
+				
+			case 6:
+				System.out.println("Displaying tastes of all stale(not fresh) fruits in the basket.");
+				System.out.println("Tastes of stale fruits:");
+				for (int i = 0; i < counter; i++) 
+				{
+					if (!basket[i].isFresh()) 
+					{
+						System.out.println(basket[i].taste());
+					}
+				}
+				break;
+				
+			case 7:
+				System.out.println("Marking a fruit as stale");
+				System.out.print("Enter the index of the fruit to mark as stale: ");
+				int index = sc.nextInt();
+				if (index >= 0 && index < counter) {
+					basket[index].setIsFresh(false);
+					System.out.println("Fruit marked as stale.");
+				} else {
+					System.out.println("Invalid index. Please retry.");
+				}
+				break;
+				
+			case 8:
+				System.out.println("Marking all sour fruits stale(optional).");
+				System.out.println("Marking all sour fruits as stale...");
+				for (int i = 0; i < counter; i++) {
+					if (basket[i].taste().equalsIgnoreCase("Sour")) {
+						basket[i].setIsFresh(false);
+					}
+				}
+				break;
+
+			default:
+				System.out.println("Invalid choice. Please retry again.");
+				break;
+			} 
+		} while (choice > 9);
+	}
+}

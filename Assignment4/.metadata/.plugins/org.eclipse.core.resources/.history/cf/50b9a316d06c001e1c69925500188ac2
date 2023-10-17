@@ -1,0 +1,178 @@
+//package com.app.fruits;
+import java.util.Scanner;
+
+public class trial {
+
+
+	class Fruit {
+		private String name;
+		private String color;
+		private double weight;
+		private boolean isFresh;
+
+		public Fruit(String name, String color, double weight) {
+			this.name = name;
+			this.color = color;
+			this.weight = weight;
+			this.isFresh = true;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public boolean isFresh() {
+			return isFresh;
+		}
+
+		public void setStale() {
+			isFresh = false;
+		}
+
+		@Override
+		public String toString() {
+			return "Name: " + name + ", Color: " + color + ", Weight: " + weight;
+		}
+
+		public String taste() {
+			return "No specific taste";
+		}
+	}
+
+	class Apple extends Fruit {
+		public Apple(String name, double weight, String color) {
+			super(name, color, weight);
+		}
+
+		@Override
+		public String taste() {
+			return "Sweet and sour";
+		}
+	}
+
+	class Orange extends Fruit {
+		public Orange(String name, double weight, String color) {
+			super(name, color, weight);
+		}
+
+		@Override
+		public String taste() {
+			return "Sour";
+		}
+	}
+
+	class Mango extends Fruit {
+		public Mango(String name, double weight, String color) {
+			super(name, color, weight);
+		}
+
+		@Override
+		public String taste() {
+			return "Sweet";
+		}
+	}
+
+	public class FruitBasket {
+		public void main(String[] args) {
+			Scanner scanner = new Scanner(System.in);
+			int basketSize;
+			System.out.print("Enter the size of the basket: ");
+			basketSize = scanner.nextInt();
+
+			Fruit[] basket = new Fruit[basketSize];
+			int counter = 0;
+
+			while (true) {
+				System.out.println("\nOptions:");
+				System.out.println("0. Exit");
+				System.out.println("1. Add Mango");
+				System.out.println("2. Add Orange");
+				System.out.println("3. Add Apple");
+				System.out.println("4. Display names of all fruits in the basket");
+				System.out.println("5. Display name, color, weight, and taste of all fresh fruits in the basket");
+				System.out.println("6. Display tastes of all stale fruits in the basket");
+				System.out.println("7. Mark a fruit as stale (by index)");
+				System.out.println("8. Mark all sour fruits as stale (optional)");
+
+				int choice = scanner.nextInt();
+
+				if (choice == 0) {
+					break;
+				}
+
+				if (counter == basketSize) {
+					System.out.println("Basket is full.");
+					continue;
+				}
+
+				String name, color;
+				double weight;
+
+				System.out.print("Enter name: ");
+				name = scanner.next();
+				System.out.print("Enter color: ");
+				color = scanner.next();
+				System.out.print("Enter weight: ");
+				weight = scanner.nextDouble();
+
+				switch (choice) {
+				case 1:
+					basket[counter] = new Mango(name, weight, color);
+					break;
+				case 2:
+					basket[counter] = new Orange(name, weight, color);
+					break;
+				case 3:
+					basket[counter] = new Apple(name, weight, color);
+					break;
+
+				case 4:
+					System.out.println("All sour fruits marked as stale.");
+					break;
+				
+				case 5:
+					System.out.println("\nNames of all fruits in the basket:");
+					for (int i = 0; i < counter; i++) 
+					{
+						System.out.println(basket[i].getName());
+					}
+					break;
+
+				case 6:
+					System.out.println("\nName, color, weight, and taste of all fresh fruits:");
+					for (int i = 0; i < counter; i++) 
+					{
+						if ( basket[i].isFresh() ) 
+						{
+							System.out.println(basket[i].toString() + ", Taste: " + basket[i].taste());
+						}
+					}
+					break;
+
+
+				case 7:
+					System.out.print("Enter the index to mark as stale: ");
+					int index = scanner.nextInt();
+					if (index >= 0 && index < counter) {
+						basket[index].setStale();
+						System.out.println("Fruit marked as stale.");
+					} else {
+						System.out.println("Invalid index.");
+					}
+					break;
+				case 8:
+					for (int i = 0; i < counter; i++) {
+						if (basket[i].taste().equals("Sour")) {
+							basket[i].setStale();
+						}
+					}
+					default:
+					System.out.println("Invalid choice.");
+					break;
+				}
+				counter++;
+			}
+		}
+	}
+}
+
