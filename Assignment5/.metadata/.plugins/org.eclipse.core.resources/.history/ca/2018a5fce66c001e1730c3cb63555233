@@ -1,0 +1,22 @@
+package com.sunbeam.company;
+
+public class CommisionEmployee extends Employee {
+	public CommisionEmployee(String firstName, String lastName, String socialSecurityNumber) {
+		super(firstName, lastName, socialSecurityNumber);
+		// TODO Auto-generated constructor stub
+	}
+
+	private double grossSales;
+	private double commissionRate;
+
+	public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate) {
+		super(firstName, lastName, socialSecurityNumber);
+		this.grossSales = grossSales;
+		this.commissionRate = commissionRate;
+	}
+
+	@Override
+	public double calculateEarnings() {
+		return grossSales * commissionRate;
+	}
+}

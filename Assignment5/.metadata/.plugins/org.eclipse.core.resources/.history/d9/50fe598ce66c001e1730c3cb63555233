@@ -1,0 +1,91 @@
+package com.sunbeam.company;
+
+public class Employee
+{
+	
+	private String firstName;
+    private String lastName;
+    private String socialSecurityNumber;
+
+    public Employee(String firstName, String lastName, String socialSecurityNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.socialSecurityNumber = socialSecurityNumber;
+    }
+
+    public void Employee(String firstName2, String lastName2, String socialSecurityNumber2) {
+
+	}
+
+	// Abstract method to calculate the employee's earnings
+    public double calculateEarnings() {
+        return 0.0;
+    }
+
+    // Getters and setters for basic employee information
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getSocialSecurityNumber() {
+        return socialSecurityNumber;
+    }
+}
+
+
+
+
+class HourlyEmployee extends Employee1 {
+    private double hourlyRate;
+    private double hoursWorked;
+
+    public HourlyEmployee(String firstName, String lastName, String socialSecurityNumber, double hourlyRate, double hoursWorked) {
+        super(firstName, lastName, socialSecurityNumber);
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+
+    @Override
+    public double calculateEarnings() {
+        if (hoursWorked <= 40) {
+            return hourlyRate * hoursWorked;
+        } else {
+            return hourlyRate * 40 + (hoursWorked - 40) * (hourlyRate * 1.5);
+        }
+    }
+}
+
+class CommissionEmployee extends Employee1 {
+    private double grossSales;
+    private double commissionRate;
+
+    public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate) {
+        super(firstName, lastName, socialSecurityNumber);
+        this.grossSales = grossSales;
+        this.commissionRate = commissionRate;
+    }
+
+    @Override
+    public double calculateEarnings() {
+        return grossSales * commissionRate;
+    }
+}
+
+class BaseSalariedCommissionEmployee extends CommissionEmployee {
+    private double baseSalary;
+
+    public BaseSalariedCommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate, double baseSalary) {
+        super(firstName, lastName, socialSecurityNumber, grossSales, commissionRate);
+        this.baseSalary = baseSalary;
+    }
+
+    @Override
+    public double calculateEarnings() {
+        // Adding 10% to the base salary
+        return baseSalary + (super.calculateEarnings() * 1.10);
+    }
+}

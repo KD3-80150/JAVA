@@ -1,0 +1,5 @@
+package com.sunbeam.company;
+
+public class BaseSalariedCommissionEmployee extends Employee {
+
+}

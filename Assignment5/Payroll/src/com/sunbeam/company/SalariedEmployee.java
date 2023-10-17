@@ -1,0 +1,17 @@
+package com.sunbeam.company;
+
+public class SalariedEmployee extends Employee {
+	private double weeklySalary;
+
+	public SalariedEmployee() {
+
+	}
+
+	public SalariedEmployee(double weeklySalary) {
+		this.weeklySalary = weeklySalary;
+	}
+
+	public double CalculateSalary() {
+		return this.weeklySalary;
+	}
+}

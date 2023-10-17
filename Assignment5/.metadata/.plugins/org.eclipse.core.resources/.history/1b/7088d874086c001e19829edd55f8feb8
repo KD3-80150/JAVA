@@ -1,0 +1,87 @@
+package com.app.fruits;
+
+import java.util.Scanner;
+
+public class tester {
+
+	public static void main(String[] args) {
+		int choice;
+		int counter;
+		Scanner sc = new Scanner(System.in)
+				System.out.println("Enter your choice.");
+
+
+		do {
+
+			{
+				System.out.println("*********Menu*********");
+				System.out.println("0.Exit.");
+				System.out.println("1.Add Mango.");
+				System.out.println("2.Add Orange.");
+				System.out.println("3.Add Apple.");
+				System.out.println("4.Display names of all fruits in the basket.");
+				System.out.println("5.Display name,color,weight,taste of all fresh fruits, in the basket.");
+				System.out.println("6.Display tastes of all stale(not fresh) fruits in the basket.");
+				System.out.println("7.Mark a fruit as stale");
+				System.out.println("8.Mark all sour fruits stale(optional).");
+			} while (choice > 9);
+
+			switch (choice) 
+			{
+			case 1:
+				System.out.println("Exiting Program.");
+				break;
+			case 2:
+				System.out.println("Exiting Program.");
+				break;
+			case 3:
+				System.out.println("Exiting Program.");
+				break;
+			case 4:
+				System.out.println("Exiting Program.");
+				break;
+			case 5:
+				System.out.println("Exiting Program.");
+				break;
+			case 6:
+				System.out.println("Exiting Program.");
+				break;
+			case 7:
+				System.out.println("Exiting Program.");
+				break;
+			case 8:
+				System.out.println("Exiting Program.");
+				break;
+			case 9:
+				System.out.println("Exiting Program.");
+				break;
+
+			default:
+				break;
+			}
+
+
+			//		0. Exit
+			//		1. Add Mango
+			//	case 1 : boundary checking
+			//	basket[counter++]=new Mango(nm,weight,color);
+			//	break;
+			//	2. Add Orange
+			//	3. Add Apple
+			//	NOTE : You will be adding a fresh fruit in the basket , in all of above options.
+			//	4. Display names of all fruits in the basket.
+			//	eg : for-each --- null checking --getName()
+			//	5. Display name,color,weight , taste of all fresh fruits , in the basket.
+			//	eg : for-each , null checking --toString , taste, isFresh : getter
+			//	6. Display tastes of all stale(not fresh) fruits in the basket.
+			//	7. Mark a fruit as stale
+			//	i/p : index
+			//	eg : setter : isFresh : false
+			//	o/p : error message (in case of invalid index) or mark it stale
+			//	8. Mark all sour fruits stale (optional)
+			//	eg : for-each , taste --equals(String)
+
+
+		}
+
+	}

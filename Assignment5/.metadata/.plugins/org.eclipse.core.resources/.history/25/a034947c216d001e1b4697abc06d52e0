@@ -1,0 +1,17 @@
+package com.sunbeam.company;
+
+public class CommissionEmployee extends Employee {
+	
+	public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber) 
+	{
+		super(firstName, lastName, socialSecurityNumber);
+	}
+
+	private double grossSales;
+	private double commissionRate;
+
+	@Override
+	public double calculateEarnings() {
+		return grossSales * commissionRate;
+	}
+}

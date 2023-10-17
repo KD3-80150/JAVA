@@ -1,0 +1,16 @@
+package com.sunbeam.company;
+
+public class BaseSalariedCommisionEmployee extends CommissionEmployee {
+    private double baseSalary;
+
+    public BaseSalariedCommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate, double baseSalary) {
+        super(firstName, lastName, socialSecurityNumber, grossSales, commissionRate);
+        this.baseSalary = baseSalary;
+    }
+
+    @Override
+    public double calculateEarnings() {
+        // Adding 10% to the base salary
+        return baseSalary + (super.calculateEarnings() * 1.10);
+    }
+}

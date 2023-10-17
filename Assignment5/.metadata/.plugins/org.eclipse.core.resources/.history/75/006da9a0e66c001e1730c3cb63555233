@@ -1,0 +1,22 @@
+package com.sunbeam.company;
+
+public class HourlyEmployee extends Employee {
+    private double hourlyRate;
+    private double hoursWorked;
+
+    public HourlyEmployee(String firstName, String lastName, String socialSecurityNumber, double hourlyRate, double hoursWorked) {
+        super(firstName, lastName, socialSecurityNumber);
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+
+    @Override
+    public double calculateEarnings() {
+        if (hoursWorked <= 40) {
+            return hourlyRate * hoursWorked;
+        } else {
+            return hourlyRate * 40 + (hoursWorked - 40) * (hourlyRate * 1.5);
+        }
+    }
+}
+
