@@ -1,0 +1,215 @@
+//Q2. Copy the Point2D class , along with the package from previous assignment.
+//a) Create a class "TestPointArray1.java" in "tester" package for the following
+//b) Accept , how many no of points to plot from user.
+//c) Create suitable data structure
+//Hint : Point2D[] points=new Point2D[sc.nextInt()];
+//d) Prompt user for x & y co ordinates n store the data suitably
+//Hint : for loop
+//e) Supply Menu to user with various Options like following
+//1. Display details of a specific point
+//User i/p : index
+//O/p : x & y co-ordinates should be displayed. or error message(eg : Invalid index , pls retry!!!!)
+//2) Display x, y co-ordinates of all points
+//Hint : for-each
+//3) User i/p : 2 indices for the points , validate the indices
+//Display distance between specified points (iff they are not located at the same position)
+//eg : sop("Enter index of strt point n end point");
+//validation : boundary condition (0<=index<length-1)
+//isEqual -- false --compute distance --display it.
+//4. Exit
+
+package tester;
+import com.app.geometry.Point2D;
+import java.util.Scanner;
+
+public class TestPointArray1 
+{
+	public static void main(String[] args) 
+	{
+		int numberOfPoints;
+		int choice;
+		int index = 0;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Please enter the number of points");
+		numberOfPoints = sc.nextInt();
+		
+		Point2D[] p = new Point2D[numberOfPoints];
+		
+		for (int i = 0; i < numberOfPoints; i++) 
+		{
+			System.out.println("Please enter the x co-ordinates of "+(i + 1)+"point : ");
+			Double x = sc.nextDouble();
+			System.out.println("Please enter the y co-ordinates of "+(i + 1)+"point : ");
+			Double y = sc.nextDouble();
+			p[i] = new Point2D(x,y);
+		}
+		do 
+		{
+			System.out.println("*******Menu*******");
+			System.out.println("1.Display details of the specific project.");
+			System.out.println("2.Display x, y co-ordinates of all points.");
+			System.out.println("3.Display distance between specified points.");
+			System.out.println("4.Exit.");
+			System.out.println("Please enter your choice.");
+			choice = sc.nextInt();
+			System.out.println("*********************************************");	
+		
+			switch (choice) 
+			{
+			case 1:
+				System.out.println("Please enter the index");
+				index = sc.nextInt();
+				
+				if (numberOfPoints > index && index >= 0) 
+				{
+					System.out.println("Point Details"+ p[index].getDetails()   );  
+				}
+				else
+				{
+					System.out.println("Invalid Index, please retry.");
+				}
+				
+				break;
+
+			case 2:
+				break;
+				
+				
+			default:
+				System.out.println("Invalid Choice. Please enter correct choice from Menu.");
+				break;
+			}
+		
+		
+		} while (choice < 4);
+		System.out.println("Thank You for using the application.");
+	}
+
+}
+
+//
+//public class TestPoint {
+//
+//	public static void main(String[] args) 
+//	{
+//		double x1,x2,y1,y2;
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Please enter the co-ordinates for Point 1");
+//		System.out.println("Please enter the X co-ordinates : ");
+//		x1 = sc.nextDouble();
+//		System.out.println("Please enter the Y co-ordinates : ");
+//		y1 = sc.nextDouble();
+//
+//
+//		System.out.println("Please enter the co-ordinates for Point 2");
+//		System.out.println("Please enter the X co-ordinates : ");
+//		x2 = sc.nextDouble();
+//		System.out.println("Please enter the Y co-ordinates : ");
+//		y2 = sc.nextDouble();
+//
+//		Point2D p1 = new Point2D(x1, y1);
+//		Point2D p2 = new Point2D(x2, y2);
+//
+//		System.out.println( "***** Point 1 ***** " );
+//		System.out.println( p1.getDetails() );
+//
+//
+//		System.out.println( "***** Point 2 ******");
+//		System.out.println( p2.getDetails() );
+//
+//
+//
+//		if (p1.isEqual(p2)) 
+//		{
+//			System.out.println("Both points are located at the same position.");
+//		}
+//		else 
+//		{
+//			double distance = p1.calculate_distance(p2);
+//			System.out.println("Both points are located at different positions.");
+//			System.out.println("Distance between Point 1 and Point 2: " + distance);
+//		}
+//	}
+//}
+//
+//
+//
+//package tester;
+//
+//import java.util.Scanner;
+//import com.app.geometry.Point2D;
+//
+//public class TestPointArray1 {
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//
+//        System.out.print("Enter the number of points to plot: ");
+//        int numberOfPoints = sc.nextInt();
+//
+//        Point2D[] points = new Point2D[numberOfPoints];
+//
+//        for (int i = 0; i < numberOfPoints; i++) {
+//            System.out.print("Enter x-coordinate for point " + (i + 1) + ": ");
+//            double x = sc.nextDouble();
+//
+//            System.out.print("Enter y-coordinate for point " + (i + 1) + ": ");
+//            double y = sc.nextDouble();
+//
+//            points[i] = new Point2D(x, y);
+//        }
+//
+//        while (true) {
+//            System.out.println("\nMenu:");
+//            System.out.println("1. Display details of a specific point");
+//            System.out.println("2. Display x, y coordinates of all points");
+//            System.out.println("3. Display distance between specified points");
+//            System.out.println("4. Exit");
+//            System.out.print("Enter your choice: ");
+//            int choice = sc.nextInt();
+//
+//            switch (choice) {
+//                case 1:
+//                    System.out.print("Enter the index of the point: ");
+//                    int index = sc.nextInt();
+//                    if (index >= 0 && index < numberOfPoints) {
+//                        System.out.println("Point details: " + points[index].getDetails());
+//                    } else {
+//                        System.out.println("Invalid index, please retry!");
+//                    }
+//                    break;
+//
+//                case 2:
+//                    System.out.println("All Points:");
+//                    for (Point2D point : points) {
+//                        System.out.println(point.getDetails());
+//                    }
+//                    break;
+//
+//                case 3:
+//                    System.out.print("Enter index of the start point: ");
+//                    int startIndex = sc.nextInt();
+//                    System.out.print("Enter index of the end point: ");
+//                    int endIndex = sc.nextInt();
+//
+//                    if (startIndex >= 0 && startIndex < numberOfPoints && endIndex >= 0 && endIndex < numberOfPoints) {
+//                        double distance = points[startIndex].calculateDistance(points[endIndex]);
+//                        System.out.println("Distance between points " + startIndex + " and " + endIndex + ": " + distance);
+//                    } else {
+//                        System.out.println("Invalid indices, please retry!");
+//                    }
+//                    break;
+//
+//                case 4:
+//                    sc.close();
+//                    System.out.println("Exiting program.");
+//                    System.exit(0);
+//                    break;
+//
+//                default:
+//                    System.out.println("Invalid choice. Try again.");
+//            }
+//        }
+//    }
+//}
