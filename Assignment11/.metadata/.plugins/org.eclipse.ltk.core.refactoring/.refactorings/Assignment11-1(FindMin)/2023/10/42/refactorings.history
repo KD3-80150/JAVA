@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.sunbeam.findmin&apos; to &apos;FindMin&apos;&#x0A;- Original project: &apos;Assignment11_1&apos;&#x0A;- Original element: &apos;com.sunbeam.findmin&apos;&#x0A;- Renamed element: &apos;com.sunbeam.FindMin&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;findmin&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.sunbeam{findmin.java[findmin" matchStrategy="1" name="FindMin" qualified="false" references="true" similarDeclarations="false" stamp="1697542787044" textual="false" version="1.0"/>
+</session>
