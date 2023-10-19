@@ -1,0 +1,82 @@
+//package com.sunbeam;
+
+//1. Store book details in a library in a list -- ArrayList.
+//Book details: isbn(string), price(double), authorName(string), quantity(int)
+//Write a menu driven program to
+//1. Add new book in List
+//If book not present, then add a new book (hint - contains())
+//If book is present, increment its quantity.
+//2. Display all books in forward order using random access
+//3. Search a book with given isbn (hint - indexOf())
+//4. Delete a book at given index.
+//5. Delete a book with given isbn.
+//6. Reverse the list (hint - Collections.reverseList())
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		List<Book> li = new ArrayList<Book>();
+		Book b1;
+		int ind;
+		int choice;
+		do {
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("-----------------------------------------");
+			System.out.println("Menu");
+			System.out.println("Enter your choice = ");
+			System.out.println("1. Add new book in List");
+			System.out.println("2. Display all books in forward order using random access");
+			System.out.println("3. Search a book with given isbn (hint - indexOf())");
+			System.out.println("4. Delete a book at given index.");
+			System.out.println("5. Delete a book with given isbn.");
+			System.out.println("6. Reverse the list (hint - Collections.reverseList())");
+			System.out.println("7.Exit.");
+			choice = scanner.nextInt();
+			switch (choice) {
+			case 1: // adding books
+				b1 = new Book();
+				b1.accept();
+				li.add(b1);
+				break;
+
+			case 2: // printing books
+				for (Book b : li) {
+					System.out.println(b);
+				}
+				break;
+			case 3: // delete at particular index
+				System.out.println("Enter particular index to delete = ");
+				ind = scanner.nextInt();
+				li.remove(ind);
+				break;
+			case 4: // Check if book with given isbn is in list or not
+				String isbn = scanner.next();
+				Book key = new Book();
+				System.out.println("Enter isbn to check = ");
+				key.setIsbn(isbn);
+				if (li.contains(key)) {
+					System.out.println("FOUND");
+				} else {
+					System.out.println("NOT FOUND");
+				}
+				break;
+			case 5:
+				li.clear();
+				break;
+			case 6:
+				System.out.println("SIZE = " + li.size());
+				break;
+			case 7:
+				BookPriceComparator comparator = new BookPriceComparator();
+				li.sort(comparator);
+				break;
+			}
+		} while (choice != 0);
+
+	}
+
+}

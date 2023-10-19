@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class MaxStringLength {
+    public static void main(String[] args) {
+        List<String> stringList = new ArrayList<>();
+
+        // Add some strings to the list
+        stringList.add("Apple");
+        stringList.add("Banana");
+        stringList.add("Cherry");
+        stringList.add("Guava");
+        stringList.add("Strawberry");
+
+        // Create a custom comparator to compare strings based on their lengths
+        Comparator<String> lengthComparator = new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return Integer.compare(s1.length(), s2.length());
+            }
+        };
+
+        // Find the string with the highest length
+        String longestString = Collections.max(stringList, lengthComparator);
+
+        System.out.println("Strings in the list:");
+        for (String str : stringList) {
+            System.out.println(str);
+        }
+
+        System.out.println("String with the highest length: " + longestString);
+    }
+}

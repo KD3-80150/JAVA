@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class String {
+
+	public static void main(String[] args) {
+		List<String> List = new ArrayList<>();
+
+		// Add some strings to the list
+		List.add("Apple");
+		List.add("Banana");
+		List.add("Cherry");
+		List.add("Date");
+		List.add("Elderberry");
+
+		// Find the string with the highest length
+		String longestString = Collections.max(List, (s1, s2) -> ((Object) s1).length() - (Object) s2.length());
+
+		System.out.println("Strings in the list:");
+		for (String str : List) {
+			System.out.println(str);
+		}
+
+		System.out.println("String with the highest length: " + longestString);
+	}
+}

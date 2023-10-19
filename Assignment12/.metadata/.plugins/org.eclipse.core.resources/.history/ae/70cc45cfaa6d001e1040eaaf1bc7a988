@@ -1,0 +1,97 @@
+import java.util.Scanner;
+
+//1. Store book details in a library in a list -- ArrayList.
+//Book details: isbn(string), price(double), authorName(string), quantity(int)
+//Write a menu driven program to
+//1. Add new book in List
+//If book not present, then add a new book (hint - contains())
+//If book is present, increment its quantity.
+//2. Display all books in forward order using random access
+//3. Search a book with given isbn (hint - indexOf())
+//4. Delete a book at given index.
+//5. Delete a book with given isbn.
+//6. Reverse the list (hint - Collections.reverseList())
+
+public class Book {
+
+	String isbn;
+	Double price;
+	String authorName;
+	int quantity;
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	Scanner scanner = new Scanner(System.in);
+
+	public void accept()
+	{
+		System.out.println("Enter isbn = ");
+		isbn = scanner.next();
+		System.out.println("Enter author = ");
+		authorName = scanner.nextLine();
+		System.out.println("Enter quantity = ");
+		quantity = scanner.nextInt();
+		System.out.println("Enter price = ");
+		price = scanner.nextDouble();	
+	}
+	
+	@Override
+	public String toString() {
+		return "Book [isbn=" + isbn + ", price=" + price + ", authorName=" + authorName + ", quantity=" + quantity
+				+ ", scanner=" + scanner + "]";
+	}
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		int choice;
+		do {
+			
+	
+		System.out.println("----------------------------------------------------------");
+		System.out.println("Menu");
+		System.out.println("1.Add new book in List");
+		System.out.println("2.Display all books in forward order using random access. ");
+		System.out.println("3.Search a book with given isbn (hint - indexOf()) ");
+		System.out.println("4.Delete a book at given index. ");
+		System.out.println("5.Delete a book with given isbn. ");
+		System.out.println("6.Reverse the list (hint - Collections.reverseList()) ");
+		System.out.println("7.Exit.");
+		System.out.println("Please enter your Choice");
+		choice = scanner.nextInt();
+		} while (choice != 0);
+	}
+
+	
+
+}
