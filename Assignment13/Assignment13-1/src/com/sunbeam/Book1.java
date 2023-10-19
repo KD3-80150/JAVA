@@ -1,0 +1,104 @@
+//1. Store few books (hardcoded values with the Book class in previous assignment) in a HashSet and display them using iterator. If any book with duplicate
+//isbn is added, what will happen? Books are stored in which order? Solve duplicate ISBN problem.
+
+package com.sunbeam;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Book1 {
+	String isbn;
+	String title;
+	String author;
+	int quantity;
+	double price;
+
+	public Book1() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Book1(String isbn, String title, String author, int quantity, double price) {
+		super();
+		this.isbn = isbn;
+		this.title = title;
+		this.author = author;
+		this.quantity = quantity;
+		this.price = price;
+	}
+
+//	void accept() {
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter ISBN");
+//		isbn = sc.next();
+//		System.out.println("Enter Title");
+//		title = sc.next();
+//		System.out.println("Enter Author");
+//		author = sc.next();
+//		sc.nextLine();
+//		System.out.println("Enter Quantity");
+//		quantity = sc.nextInt();
+//		System.out.println("Enter Price");
+//		price = sc.nextDouble();
+//
+//	}
+
+	public String toString() {
+
+		return "Book[ ISBN = " + isbn + ", Title = " + title + ", Author = " + author + ", Quantity = " + quantity
+				+ ", Price = " + price + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(isbn);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book1 other = (Book1) obj;
+		return Objects.equals(isbn, other.isbn);
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	
+//	public static void main(String[] args) {
+//		Set<Book1> set = new HashSet<Book1>();
+//		//Set<Book1> set = new HashSet<Book1>();
+//		//Book b1 = new Book();
+//		set.add(new Book1("aa","Yugandhar","Shivaji Sawant",2,150));
+//		set.add(new Book1("ab","Yayti","VSKhandekar",4,200));
+//		set.add(new Book1("dd","Shriman Yogi","Ranjit Desai",1,500));
+//		set.add(new Book1("sd","Shyamchi Aai","Sane Guruji",5,250));
+//		set.add(new Book1("dd","Rau","NSInamdar",2,350));
+//
+//		Iterator<Book1> itr = set.iterator();
+//		while(itr.hasNext()) {
+//			Book1 e = itr.next();
+//			System.out.println(e);
+//		}
+//}
+}

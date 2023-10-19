@@ -1,0 +1,19 @@
+package com.sunbeam;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class BookMain {
+
+	public static void main(String[] args) {
+		Set<Book> set =new HashSet<Book>();
+		//Book b1 = new Book();
+		set.add(new Book("aa","Yugandhar","Shivaji Sawant",2,150));
+		set.add(new Book("ab","Yayti","VSKhandekar",4,200));
+		set.add(new Book("dd","Shriman Yogi","Ranjit Desai",1,500));
+		set.add(new Book("sd","Shyamchi Aai","Sane Guruji",5,250));
+		set.add(new Book("rs","Rau","NSInamdar",2,350));
+
+	}
+
+}
