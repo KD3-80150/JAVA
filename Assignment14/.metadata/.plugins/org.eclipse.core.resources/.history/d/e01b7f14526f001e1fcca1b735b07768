@@ -1,0 +1,10 @@
+package com.sunbeam.employee;
+
+public class Clerk implements Employee {
+	double Sal;
+	double getsal()
+	{
+		return sal;
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.sunbeam.employee;
+
+public class labour {
+	double hrs,rate;
+	public double getsal()
+	{
+		return hrs,rate;
+	}
+
+}

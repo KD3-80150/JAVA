@@ -1,0 +1,23 @@
+package com.sunbeam.employee;
+
+public class Employee {
+	interface Emp {
+		double getsal();
+
+		default double calcInc() {
+			return 0.0;
+		}
+
+		static double income = 0.0;
+		{
+
+			for(Employee e : arr)
+			{
+				income += e.getsal();
+				
+			}
+				}
+
+	}
+
+}

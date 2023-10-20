@@ -1,0 +1,21 @@
+package com.sunbeam.employee;
+
+public class labour {
+	double hrs,rate;
+	public double getsal()
+	{
+		return hrs*rate;
+	}
+	public double calInc()
+	{
+		if ( hrs > 360 ) 
+		{
+			return 0.05 * getsal();
+		}
+		else 
+		{
+			return 0.0;
+		}
+	}
+
+}

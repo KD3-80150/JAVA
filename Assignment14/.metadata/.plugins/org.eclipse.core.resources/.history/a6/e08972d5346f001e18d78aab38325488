@@ -1,0 +1,41 @@
+//
+//3. Create a functional interface Arithmetic with single abstract method double calc(double,double). Write a static method calculate() in main
+//class as follows. In main(), write a menu driven program that inputs two numbers from the user and calls calculate() method with appropriate lambda
+//expression (in arg3) to perform addition, subtraction, multiplication and division operations.
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+import java.util.function.Predicate;
+
+interface Arithmetic {
+	Double calc(double a, double b);
+}
+
+public class LenghtString3 {
+
+	public static void main(String[] args) {
+
+
+//		static void calculate(double num1, double num2, Arithmetic op) {
+//			double result = op.calc(num1, num2);
+//			System.out.println("Result: "+result);
+//		}
+
+		int choice;
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.println("*****Menu*****");
+			System.out.println("1.Add.");
+			System.out.println("2.Substraction.");
+			System.out.println("3.Multiplication.");
+			System.out.println("4.Division.");
+			System.out.println("Please Enter your choice");
+			choice = sc.nextInt();
+			
+		} while (choice !=0 );
+
+
+	}
+
+}

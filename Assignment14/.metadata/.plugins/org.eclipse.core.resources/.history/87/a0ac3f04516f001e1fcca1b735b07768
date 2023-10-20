@@ -1,0 +1,13 @@
+package com.sunbeam.employee;
+
+public class Manager implements Emp{
+	double bs,da;
+	public double getsal()
+	{
+		return bs+da;
+	}
+	double calInc()
+	{
+		return 0.2 * bs;
+	}
+}
