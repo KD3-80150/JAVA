@@ -6,8 +6,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Book4"/>
+		<item key="selection" value="Book5"/>
 		<list key="findhistory">
+			<item value="Book55"/>
+			<item value="Book"/>
+			<item value="Book4"/>
+			<item value="Person"/>
 			<item value="Book2"/>
 			<item value="Book3"/>
 			<item value="Product"/>
@@ -15,9 +19,10 @@
 			<item value="Distance"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Book5"/>
+			<item value="Book"/>
 			<item value="Book4"/>
 			<item value=" Book4"/>
-			<item value="Book"/>
 			<item value="Book3"/>
 			<item value="Book2"/>
 		</list>

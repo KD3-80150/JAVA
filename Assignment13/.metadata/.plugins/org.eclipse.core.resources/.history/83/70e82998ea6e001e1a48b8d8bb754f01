@@ -1,0 +1,38 @@
+
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class BookMain {
+
+	public static void main(String[] args) {
+		
+		
+		TreeSet<Book> set =new TreeSet<Book>();
+		//Book b1 = new Book();
+		set.add(new Book("aa","Yugandhar","Shivaji Sawant",2,150));
+		set.add(new Book("ab","Yayti","VSKhandekar",4,200));
+		set.add(new Book("dd","Shriman Yogi","Ranjit Desai",1,500));
+		set.add(new Book("sd","Shyamchi Aai","Sane Guruji",5,250));
+		set.add(new Book("dd","Rau","NSInamdar",2,350));
+
+		System.out.println("Display all books in Forward Order......");
+		Iterator<Book> itr = set.iterator();
+		while (itr.hasNext()) {
+			Book b = itr.next();
+			System.out.println(b);
+		}
+		System.out.println("-------------------------------------------------------\n");
+		System.out.println("Display all books in Reverse Order......");
+		Iterator<Book> itr1 = set.descendingIterator();
+		while (itr1.hasNext()) {
+			Book str = itr1.next();
+			System.out.println(str);
+		}		
+	}
+
+}
+
+
+

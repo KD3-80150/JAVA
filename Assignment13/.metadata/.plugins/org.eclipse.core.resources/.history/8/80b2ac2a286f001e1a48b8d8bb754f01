@@ -1,0 +1,57 @@
+
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class BookMain5 {
+
+	public static void main(String[] args) {
+		
+		
+//		TreeSet<Book5> set =new TreeSet<Book5>();
+//		//Book5 b1 = new Book5();
+//		set.add(new Book5("aa","Yugandhar","Shivaji Sawant",2,150));
+//		set.add(new Book5("ab","Yayti","VSKhandekar",4,200));
+//		set.add(new Book5("dd","Shriman Yogi","Ranjit Desai",1,500));
+//		set.add(new Book5("sd","Shyamchi Aai","Sane Guruji",5,250));
+//		set.add(new Book5("dd","Rau","NSInamdar",2,350));
+
+		Scanner sc = new Scanner(System.in);
+		Map<String, Book5> map = new HashMap<String, Book5>();
+		int choice;
+		Book5 b;
+		do {
+			System.out.println("1.insert in map.");
+			System.out.println("2.Find in map. ");
+
+			System.out.println("Enter choice = ");
+			choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				b = new Book5();
+				b.accept();
+				map.put(b.getIsbn(), b);
+
+				break;
+			case 2:
+				System.out.println("Enter isbn to search in map");
+				String isbn = sc.next();
+				Book5 s = map.get(isbn);
+				if(s==null)
+				System.out.println("isbn not found");
+				else
+					System.out.println("isbn found");
+				break;
+			
+
+			}
+
+		} while (choice != 0);
+
+	}
+
+}

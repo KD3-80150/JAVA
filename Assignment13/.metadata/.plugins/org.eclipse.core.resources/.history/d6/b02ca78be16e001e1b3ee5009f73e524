@@ -1,0 +1,104 @@
+//import java.util.Comparator;
+//import java.util.Iterator;
+//import java.util.Set;
+//import java.util.TreeSet;
+//
+//public class BookMain4 {
+//
+//	public static void main(String[] args) {
+//		
+//		class BookComparator implements Comparator<Book4> {
+//
+//			@Override
+//			public int compare(Book4 b1, Book4 b2) {
+//				int diff = Double.compare(b1.getPrice(), b2.getPrice());
+//				return diff;
+//			}
+//
+//		}
+//		BookComparator bookComp = new BookComparator();
+//
+//		TreeSet<Book4> set = new TreeSet<Book4>(bookComp);
+//		set.add(new Book4("aa", "Yugandhar", "Shivaji Sawant", 2, 150));
+//		set.add(new Book4("ab", "Yayti", "VSKhandekar", 4, 200));
+//		set.add(new Book4("dd", "Shriman Yogi", "Ranjit Desai", 1, 500));
+//		set.add(new Book4("sd", "Shyamchi Aai", "Sane Guruji", 5, 250));
+//		set.add(new Book4("dd", "Rau", "NSInamdar", 2, 350));
+//
+//		//		set.add(new Book4("H5", 89.0, "JK Rolling", 2));
+//		//		set.add(new Book4("H2", 35.0, "John keats", 3));
+//		//		set.add(new Book4("H2", 55.0, "Chetan", 4));
+//		//		set.add(new Book4("H4", 100.0, "Amish", 1));
+//		//		set.add(new Book4("H1", 50.0, "Durjoy", 5));
+//
+//		System.out.println("Display all books in Forward Order......");
+//		Iterator<Book4> itr = set.iterator();
+//		while (itr.hasNext()) {
+//			Book4 b = itr.next();
+//			System.out.println(b);
+//		}
+//		System.out.println("-------------------------------------------------------\n");
+//		System.out.println("Display all books in Reverse Order......");
+//		Iterator<Book4> itr1 = set.descendingIterator();
+//		while (itr1.hasNext()) {
+//			Book4 str = itr1.next();
+//			System.out.println(str);
+//		}
+//	}
+//	// Output----------->we can't use comparable and comparator Interface together........... ....
+//}
+
+
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class BookMain4 {
+
+	public static void main(String[] args) {
+		Set<Book4> set =new TreeSet<Book4>();
+		class bookcomparator implements Comparator<Book4>{
+			public int compare(Book4 b1, Book4 b2)
+			{
+				int diff = Double.compare(b1.getPrice(), b2.getPrice());
+				return diff;
+			}
+		}
+		  
+		//Book b1 = new Book();
+		set.add(new Book4("aa","Yugandhar","Shivaji Sawant",2,150));
+		set.add(new Book4("ab","Yayti","VSKhandekar",4,200));
+		set.add(new Book4("dd","Shriman Yogi","Ranjit Desai",1,500));
+		set.add(new Book4("sd","Shyamchi Aai","Sane Guruji",5,250));
+		set.add(new Book4("dd","Rau","NSInamdar",2,350));
+
+		Iterator<Book4> itr = set.iterator();
+		while(itr.hasNext()) {
+			Book4 b = itr.next();
+			System.out.println(b);
+		}
+		
+
+//		System.out.println("-------------------------------------------------------\n");
+//		System.out.println("Display all books in Reverse Order......");
+//		Iterator<Book4> itr1 = set.descendingIterator();
+//		while (itr1.hasNext()) {
+//			Book4 str = itr1.next();
+//			System.out.println(str);
+//		}
+		
+		System.out.println("-------------------------------------------------------\n");
+		System.out.println("Display all books in Reverse Order......");
+		Iterator<Book4> itr1 = set.descendingIterator();
+		while(itr1.hasNext()) {
+			Book4 str = itr1.next();
+			System.out.println(str);
+		}
+		
+	}
+
+}
+
+
+

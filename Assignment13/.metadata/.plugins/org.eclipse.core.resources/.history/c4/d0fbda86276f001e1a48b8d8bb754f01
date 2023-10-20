@@ -1,0 +1,148 @@
+
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class BookMain5 {
+
+	public static void main(String[] args) {
+		
+		
+		TreeSet<Book5> set =new TreeSet<Book5>();
+		//Book5 b1 = new Book5();
+		set.add(new Book5("aa","Yugandhar","Shivaji Sawant",2,150));
+		set.add(new Book5("ab","Yayti","VSKhandekar",4,200));
+		set.add(new Book5("dd","Shriman Yogi","Ranjit Desai",1,500));
+		set.add(new Book5("sd","Shyamchi Aai","Sane Guruji",5,250));
+		set.add(new Book5("dd","Rau","NSInamdar",2,350));
+
+		System.out.println("Display all Book5s in Forward Order......");
+		Iterator<Book5> itr = set.iterator();
+		while (itr.hasNext()) {
+			Book5 b = itr.next();
+			System.out.println(b);
+		}
+		System.out.println("-------------------------------------------------------\n");
+		System.out.println("Display all Book5s in Reverse Order......");
+		Iterator<Book5> itr1 = set.descendingIterator();
+		while (itr1.hasNext()) {
+			Book5 str = itr1.next();
+			System.out.println(str);
+		}	
+
+		Map<Book5> map = new HashMap<>();
+		Book5 p1 = new Book5("Nilesh", 40, new Distance(5,7));
+		map.put(p1.getprice(), p1);
+		Book5 p2 = new Book5("Rahul", 43, new Distance(5,6));
+		map.put(p2.getprice(), p2);
+		// ...
+		Book5 p = new Book5();
+		map.put(p.getprice(), p);
+		}
+	}
+
+package com.sunbeam;
+import java.util.Objects;
+import java.util.Scanner;
+
+public class Book {
+	private String isbn;
+	private double price;
+	private String authorName;
+	private int quantity;
+
+	public Book()
+	{
+		
+	}
+
+	public Book(String isbn, double price, String authorName, int quantity) {
+		super();
+		this.isbn = isbn;
+		this.price = price;
+		this.authorName = authorName;
+		this.quantity = quantity;
+	}
+	public void accept()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter isbn :");
+		isbn=sc.next();
+		System.out.println("Enter price :");
+		price=sc.nextDouble();
+		System.out.println("Enter authorName:");
+		authorName=sc.nextLine();
+		sc.nextLine();
+		System.out.println("Enter quantity :");
+		quantity=sc.nextInt();
+		
+		
+	}
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(isbn);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		return Objects.equals(isbn, other.isbn);
+	}
+
+	@Override
+	public String toString() {
+		return "BookDetails [isbn=" + isbn + ", price=" + price + ", authorName=" + authorName + ", quantity="
+				+ quantity + "]";
+	}
+   
+}
+
+
+
+	
+
+
+
+
